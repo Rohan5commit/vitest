@@ -387,14 +387,14 @@ This asymmetry is what makes `--update` work correctly: `match` returns a `resol
 Register a custom matcher with `expect.extend(...)` and call the snapshot composables from `vitest`:
 
 ```ts [setup.ts]
-import { expect, Snaphsots } from 'vitest'
+import { expect, Snapshots } from 'vitest'
 
 expect.extend({
   toMatchMyDomainSnapshot(received: unknown) {
-    return Snaphsots.toMatchDomainSnapshot.call(this, myAdapter, received)
+    return Snapshots.toMatchDomainSnapshot.call(this, myAdapter, received)
   },
   toMatchMyDomainInlineSnapshot(received: unknown, inlineSnapshot?: string) {
-    return Snaphsots.toMatchDomainInlineSnapshot.call(
+    return Snapshots.toMatchDomainInlineSnapshot.call(
       this,
       myAdapter,
       received,
