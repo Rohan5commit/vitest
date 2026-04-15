@@ -60,7 +60,7 @@ export class V8CoverageProvider extends BaseCoverageProvider implements Coverage
       },
       onFinished: async (project, environment) => {
         // Source maps can change based on projectName and transform mode.
-        // Coverage transform re-uses source maps so we need to separate transforms from each other.
+        // Coverage transform reuses source maps so we need to separate transforms from each other.
         const converted = await this.convertCoverage(
           merged,
           project,
