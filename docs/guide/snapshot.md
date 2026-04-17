@@ -294,7 +294,7 @@ File snapshot matchers must be `async` — `toMatchFileSnapshot` returns a `Prom
 :::
 
 ::: warning
-When custom inline snapshot matcher is aynchronous, Vitest cannot automatically infer the call location for inline snapshot rewriting. You must capture the call site by setting the `'error'` flag on the chai assertion object:
+When custom inline snapshot matcher is asynchronous, Vitest cannot automatically infer the call location for inline snapshot rewriting. You must capture the call site by setting the `'error'` flag on the chai assertion object:
 
 ```ts
 import { expect, chai, Snapshots } from 'vitest'
@@ -387,14 +387,14 @@ This asymmetry is what makes `--update` work correctly: `match` returns a `resol
 Register a custom matcher with `expect.extend(...)` and call the snapshot composables from `vitest`:
 
 ```ts [setup.ts]
-import { expect, Snaphsots } from 'vitest'
+import { expect, Snapshots } from 'vitest'
 
 expect.extend({
   toMatchMyDomainSnapshot(received: unknown) {
-    return Snaphsots.toMatchDomainSnapshot.call(this, myAdapter, received)
+    return Snapshots.toMatchDomainSnapshot.call(this, myAdapter, received)
   },
   toMatchMyDomainInlineSnapshot(received: unknown, inlineSnapshot?: string) {
-    return Snaphsots.toMatchDomainInlineSnapshot.call(
+    return Snapshots.toMatchDomainInlineSnapshot.call(
       this,
       myAdapter,
       received,
